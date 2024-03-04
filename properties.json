@@ -1,0 +1,644 @@
+{
+    "sensors": {
+        "ambient": {
+            "properties": {
+                "frequency": "event"
+            },
+            "data": {
+                "output_file_type": ["json"]
+            }
+        },
+        "rgbd_camera": {
+            "list": [
+                {
+                    "label": "RGBD-A",
+                    "location": "bedroom"
+                },
+                {
+                    "label": "RGBD-B",
+                    "location": "diningroom"
+                }
+            ],
+            "properties": {
+                "frequency": 60,
+                "frequency_unit": "FPS",
+                "resolution": "720p"
+            },
+            "data": [
+                {
+                    "label": "RGBD",
+                    "output_file_type": ["svo", "avi"]
+                },
+                {
+                    "label": "RGB",
+                    "output_file_type": ["mp4"]
+                },
+                {
+                    "label": "Depth",
+                    "output_file_type": ["mp4"]
+                }
+            ]
+        },
+        "imu": {
+            "list": [
+                {
+                    "name": "wristband-d5",
+                    "mac_address": "D5:6E:A9:93:27:F2"
+                },
+                {
+                    "name": "wristband-e8",
+                    "mac_address": "E8:44:3E:9D:9B:1D"
+                }
+            ],
+            "properties": {
+                "frequency": 50,
+                "frequency_unit": "Hz"
+            },
+            "data": {
+                "output_file_type": ["json"]
+            }
+        },
+        "uwb": {
+            "list": [
+                {
+                    "serial_number": 100000029171,
+                    "location": "diningroom"
+                },
+                {
+                    "serial_number": 100000029444,
+                    "location": "bedroom"
+                },
+                {
+                    "serial_number": 100000030722,
+                    "location": "bathroom"
+                }
+            ],
+            "properties": {
+                "frequency": 50,
+                "frequency_unit": "Hz"
+            },
+            "data": {
+                "output_file_type": ["json"]
+            }
+        },
+        "pir": {
+            "list": [
+                {
+                    "label": "rpizero-pir1",
+                    "location": "bathroom"
+                },
+                {
+                    "label": "rpizero-pir2",
+                    "location": "bedroom"
+                },
+                {
+                    "label": "rpizero-pir3",
+                    "location": "livingroom"
+                }
+            ],
+            "properties": {
+                "frequency": 1,
+                "frequency_unit": "Hz"
+            },
+            "data": {
+                "output_file_type": ["json"]
+            }
+        }
+    },
+    "data": {
+        "misc": {
+            "empty_home_data": {
+                "id": "0000001a",
+                "sensors": ["uwb"],
+                "properties": {
+                    "duration_sec": 300
+                }
+            },
+            "robot_moving": {
+                "id": "0000001b",
+                "sensors": ["uwb"],
+                "properties": {
+                    "duration_sec": 150
+                }
+            },
+            "distance_from_uwb": {
+                "id": "0000001c",
+                "sensors": ["uwb"],
+                "properties": {
+                    "duration_sec": 5,
+                    "radar_of_interest_serial": 100000029171,
+                    "distances_cm": [60, 120, 180, 240, 300]
+                }
+            }
+        },
+        "dataset_mono": {
+            "properties": {
+                "second_to_remove_after_start": 10,
+                "second_to_remove_before_end": 5
+            },
+            "activities": [
+                {
+                    "label": "BrushingTeeth",
+                    "possible_locations": ["bathroom"],
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "DoingHousework",
+                    "possible_locations": ["kitchen", "diningroom", "livingroom", "bedroom"],
+                    "duration_sec": 45,
+                    "recording_total_sec": 60,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "Drinking",
+                    "possible_locations": ["kitchen", "diningroom", "livingroom", "bedroom"],
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "Eating",
+                    "possible_locations": ["diningroom"],
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1
+                },
+                {
+                    "label": "GettingDressedUndressed",
+                    "possible_locations": ["bedroom"],
+                    "duration_sec": 60,
+                    "recording_total_sec": 45,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "GoingToilet",
+                    "possible_locations": ["bathroom"],
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "PuttingAwayCleanLaundry",
+                    "possible_locations": ["bedroom"],
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1
+                },
+                {
+                    "label": "PuttingAwayDishes",
+                    "possible_locations": ["kitchen"],
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "ReadingBook",
+                    "possible_locations": ["diningroom", "livingroom", "bedroom"],
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1
+                },
+                {
+                    "label": "Resting",
+                    "possible_locations": ["livingroom", "bedroom"],
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2
+                },
+                {
+                    "label": "Sleeping",
+                    "possible_locations": ["bedroom"],
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1
+                },
+                {
+                    "label": "TakingShower",
+                    "possible_locations": ["bathroom"],
+                    "duration_sec": 90,
+                    "recording_total_sec": 105,
+                    "nb_iteration": 1
+                },
+                {
+                    "label": "UsingCompSPhone",
+                    "possible_locations": ["livingroom", "bedroom", "diningroom", "kitchen"],
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1
+                },
+                {
+                    "label": "WashingDishes",
+                    "possible_locations": ["kitchen"],
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1
+                }
+            ],
+            "participants": [
+                {
+                    "id": "80a2ce12",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "1b111579",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "a6f74a8b",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "41b00638",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "1e1a8f23",
+                    "gender": "male",
+                    "dominant_hand": "left",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "4b184c28",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "32052f20",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "4e36eb16",
+                    "gender": "male",
+                    "dominant_hand": "left",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "22544a24",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "bf7554bb",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "f87e2ddf",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 1,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "674153ef",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "21bf37e6",
+                    "gender": "female",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "ffdacbd8",
+                    "gender": "female",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "32df3b14",
+                    "gender": "female",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "becf93c6",
+                    "gender": "female",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "66ce20ef",
+                    "gender": "female",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "da6d42da",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "28260ae9",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "cd8abd36",
+                    "gender": "male",
+                    "dominant_hand": "left",
+                    "part": 2,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "6ca6048e",
+                    "gender": "female",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "041e90f6",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 2,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "4153eaad",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 3,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "3ca7e943",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 3,
+                    "missing_uwb_data": true
+                },
+                {
+                    "id": "5a9aef5f",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 3,
+                    "missing_uwb_data": false
+                },
+                {
+                    "id": "8c4bad9c",
+                    "gender": "male",
+                    "dominant_hand": "right",
+                    "part": 3,
+                    "missing_uwb_data": false
+                }
+            ]
+        },
+        "dataset_multi": {
+            "properties": {
+                "second_to_remove_after_start": 10,
+                "second_to_remove_before_end": 5
+            },
+            "combinations": [
+                {
+                    "label": "combination_1",
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1,
+                    "activities": [
+                        {
+                            "label": "PuttingAwayCleanLaundry",
+                            "participant": 1,
+                            "location": "bedroom"
+                        },
+                        {
+                            "label": "PuttingAwayCleanLaundry",
+                            "participant": 2,
+                            "location": "bedroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_2",
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1,
+                    "activities": [
+                        {
+                            "label": "Eating",
+                            "participant": 1,
+                            "location": "diningroom"
+                        },
+                        {
+                            "label": "Eating",
+                            "participant": 2,
+                            "location": "diningroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_3",
+                    "duration_sec": 90,
+                    "recording_total_sec": 105,
+                    "nb_iteration": 2,
+                    "activities": [
+                        {
+                            "label": "BrushingTeeth",
+                            "participant": 1,
+                            "location": "bathroom"
+                        },
+                        {
+                            "label": "BrushingTeeth",
+                            "participant": 2,
+                            "location": "bathroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_4",
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1,
+                    "activities": [
+                        {
+                            "label": "WashingDishes",
+                            "participant": 1,
+                            "location": "kitchen"
+                        },
+                        {
+                            "label": "Eating",
+                            "participant": 2,
+                            "location": "diningroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_5",
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2,
+                    "activities": [
+                        {
+                            "label": "PuttingAwayDishes",
+                            "participant": 1,
+                            "location": "kitchen"
+                        },
+                        {
+                            "label": "Resting",
+                            "participant": 2,
+                            "location": "livingroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_6",
+                    "duration_sec": 90,
+                    "recording_total_sec": 105,
+                    "nb_iteration": 2,
+                    "activities": [
+                        {
+                            "label": "BrushingTeeth",
+                            "participant": 1,
+                            "location": "bathroom"
+                        },
+                        {
+                            "label": "TakingShower",
+                            "participant": 2,
+                            "location": "bathroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_7",
+                    "duration_sec": 120,
+                    "recording_total_sec": 135,
+                    "nb_iteration": 1,
+                    "activities": [
+                        {
+                            "label": "TakingShower",
+                            "participant": 1,
+                            "location": "bathroom"
+                        },
+                        {
+                            "label": "Sleeping",
+                            "participant": 2,
+                            "location": "bedroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_8",
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2,
+                    "activities": [
+                        {
+                            "label": "GettingDressedUndressed",
+                            "participant": 1,
+                            "location": "bedroom"
+                        },
+                        {
+                            "label": "GoingToilet",
+                            "participant": 2,
+                            "location": "bathroom"
+                        }
+                    ]
+                },
+                {
+                    "label": "combination_9",
+                    "duration_sec": 60,
+                    "recording_total_sec": 75,
+                    "nb_iteration": 2,
+                    "activities": [
+                        {
+                            "label": "Sleeping",
+                            "participant": 1,
+                            "location": "bedroom"
+                        },
+                        {
+                            "label": "Resting",
+                            "participant": 2,
+                            "location": "livingroom"
+                        }
+                    ]
+                }
+            ],
+            "groups": [
+                {
+                    "id": "e09ced7a",
+                    "participants": [
+                        {
+                            "id": "a6f74a8b",
+                            "gender": "male",
+                            "dominant_hand": "right"
+                        },
+                        {
+                            "id": "41b00638",
+                            "gender": "male",
+                            "dominant_hand": "left"
+                        }
+                    ]
+                },
+                {
+                    "id": "c843b367",
+                    "participants": [
+                        {
+                            "id": "32052f20",
+                            "gender": "male",
+                            "dominant_hand": "right"
+                        },
+                        {
+                            "id": "22544a24",
+                            "gender": "male",
+                            "dominant_hand": "left"
+                        }
+                    ]
+                },
+                {
+                    "id": "2cacafee",
+                    "participants": [
+                        {
+                            "id": "4e36eb16",
+                            "gender": "male",
+                            "dominant_hand": "left"
+                        },
+                        {
+                            "id": "80a2ce12",
+                            "gender": "male",
+                            "dominant_hand": "left"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+
+
